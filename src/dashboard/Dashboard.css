@@ -1,0 +1,8 @@
+.menus {
+    width: 100%;
+    padding: .5rem 1rem;
+    border-radius: .2rem;
+}
+.active {
+    background-color: #42C2FF;
+}
