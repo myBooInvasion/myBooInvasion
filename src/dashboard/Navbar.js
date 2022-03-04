@@ -10,7 +10,7 @@ function Navbar(props) {
                 <IconButton size='large' sx={{ color: '#42C2FF', display: {xs: 'none', lg: 'inline-flex'} }} onClick={props.changeWidth}>
                     {props.sider ? <MenuOpen /> : <List />}
                 </IconButton>
-                <IconButton size='large' sx={{ color: '#42C2FF', display: {xs: 'inline-flex', lg: 'none'} }}>
+                <IconButton size='large' sx={{ color: '#42C2FF', display: {xs: 'inline-flex', lg: 'none'} }} onClick={props.toggleDrawer}>
                     <Menu />
                 </IconButton>
             </Grid>

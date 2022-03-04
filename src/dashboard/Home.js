@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box } from '@mui/material';
+import { Box, Drawer, Typography } from '@mui/material';
 import Sider from './Sider';
 import { Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
@@ -7,16 +7,24 @@ import Navbar from './Navbar';
 
 function Home() {
     const [sider, setSider] = useState(false);
+    const [drawer, setDrawer] = useState(false);
 
     const ChangeWidth = () => {
         setSider(!sider);
     }
 
+    const ToggleDrawer = () => {
+        setDrawer(!drawer);
+    }
+
     return (
         <Box component={'div'} sx={{ display: 'flex', backgroundColor: '#F7F7F7', width: '100%', minHeight: '100vh' }}>
             <Sider sider={sider} />
+            <Drawer anchor='left' open={drawer} onClose={ToggleDrawer} sx={{display: {xs: 'flex', lg: 'none'}}}>
+                <ContentDrawer />
+            </Drawer>
             <Box component={'div'} sx={{ flexGrow: 1 }}>
-                <Navbar sider={sider} changeWidth={ChangeWidth} />
+                <Navbar sider={sider} toggleDrawer={ToggleDrawer} changeWidth={ChangeWidth} />
                 <Outlet />
             </Box>
         </Box>
@@ -24,3 +32,11 @@ function Home() {
 }
 
 export default Home;
+
+function ContentDrawer() {
+    return (
+        <Box component={'div'} sx={{minWidth: '10rem', backgroundColor: 'white'}}>
+            <Typography variant='subtitle2'>Menu</Typography>            
+        </Box>
+    );
+}
