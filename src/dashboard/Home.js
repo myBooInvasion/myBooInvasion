@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Box, Drawer, Typography } from '@mui/material';
+import { Box, Drawer } from '@mui/material';
 import Sider from './Sider';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
 
 
