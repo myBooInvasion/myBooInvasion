@@ -36,7 +36,8 @@ export default Home;
 function ContentDrawer() {
     return (
         <Box component={'div'} sx={{minWidth: '10rem', backgroundColor: 'white'}}>
-            <Typography variant='subtitle2'>Menu</Typography>            
+            <Link to={'/'}>Home</Link>
+            <Link to={'/profile'}>Profile</Link>            
         </Box>
     );
 }
