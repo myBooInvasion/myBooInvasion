@@ -37,9 +37,11 @@ function Navbar(props) {
                     </Menu>
                 </Box>
             </Grid>
-            <IconButton sx={{ width: '4rem', backgroundColor: 'white', borderLeft: 2, borderColor: '#EDEDED', borderRadius: 0, color: '#42C2FF' }}>
-                <SettingsIcon />
-            </IconButton>
+            <Box component={'div'} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '4rem', backgroundColor: 'white', borderLeft: 2, borderColor: '#EDEDED' }}>
+                <IconButton sx={{color: '#42C2FF'}}>
+                    <SettingsIcon />
+                </IconButton>
+            </Box>
         </Grid>
     );
 }
