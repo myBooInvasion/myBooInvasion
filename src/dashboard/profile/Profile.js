@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button, Card, CardActions, CardContent, CardMedia, Container, FormControl, FormControlLabel, Grid, InputLabel, MenuItem, Radio, RadioGroup, Select, Stack, TextareaAutosize, TextField, Typography } from '@mui/material';
+import { Box, Button, Card, CardActions, CardContent, CardMedia, Container, FormControl, FormControlLabel, Grid, InputLabel, MenuItem, Radio, RadioGroup, Select, Stack, TextField, Typography } from '@mui/material';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import { MobileDatePicker } from '@mui/lab';
@@ -111,7 +111,7 @@ function Profile() {
               </Grid>
               {/* Address */}
               <Grid item xs={12}>
-                <TextareaAutosize minRows={4} style={{width: '100%'}} />
+                <TextField fullWidth required minRows={4} multiline label='Your address' color='secondary' size='small' />
               </Grid>
               {/* Address */}
               <Grid item xs={12} md={6}>
