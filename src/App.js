@@ -1,10 +1,12 @@
 import { createTheme, ThemeProvider } from '@mui/material';
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import UserContext from './UserContext';
 import './App.css';
 import Home from './dashboard/Home';
 import Overview from './dashboard/overview/Overview';
 import Profile from './dashboard/profile/Profile';
+
 
 const them = createTheme({
   breakpoints: {
@@ -26,18 +28,44 @@ const them = createTheme({
   }
 });
 
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isLogin: false,
+    }
+  }
+
+  UpdaterContext = (action) => {
+    switch (action.type) {
+      case 'SET_LOGIN':
+        return this.setState({
+          isLogin: !this.state.isLogin,
+        });
+    
+      default:
+        break;
+    }
+  }
 
   render() {
     return (
-      <ThemeProvider theme={them}>
+      <UserContext.Provider
+      value={{
+        state: this.state,
+        update: this.UpdaterContext,
+      }}>
+        <ThemeProvider theme={them}>
           <Routes>
             <Route path='/' element={<Home />}>
               <Route path='' element={<Overview />} />
               <Route path='profile' element={<Profile />} />
             </Route>
           </Routes>
-      </ThemeProvider>
+        </ThemeProvider>
+      </UserContext.Provider>
     );
   }
 }
