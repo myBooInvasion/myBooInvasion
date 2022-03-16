@@ -50,6 +50,15 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+    const token = localStorage.getItem('user');
+    if (token !== null) {
+      this.setState({
+        isLogin: !this.state.isLogin,
+      });
+    }
+  }
+
   render() {
     return (
       <UserContext.Provider

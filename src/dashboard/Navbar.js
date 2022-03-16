@@ -31,22 +31,18 @@ function Navbar(props) {
             <Grid item xs>
                 {state.isLogin?
                 <Stack direction='row' sx={{justifyContent: 'flex-end', alignItems: 'center'}}>
-                    <Avatar alt='nabila' src={'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80'} sx={{ mx: 1 }} />
+                    <Avatar alt='jhon' src={'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80'} sx={{ mx: 1 }} />
                     <IconButton size='small' color='secondary' onClick={ShowMenu}>
                         <ArrowDropDownRounded fontSize='large' />
                     </IconButton>
                     <Menu open={open} anchorEl={targetEl} onClose={ShowMenu} variant='selectedMenu'>
                         <MenuItem>Profile</MenuItem>
                         <MenuItem divider>My Task</MenuItem>
-                        <MenuItem sx={{color: 'red'}} onClick={() => {
-                            setOpen(!open);
-                            update({type: 'SET_LOGIN'});
-                        }}>Logout</MenuItem>
+                        <MenuItem sx={{color: 'red'}}>Logout</MenuItem>
                     </Menu>
                 </Stack>:
-                <Stack direction='row' sx={{justifyContent: 'flex-end', alignItems: 'center'}}>
-                    <Button variant='outlined' size='small' sx={{textTransform: 'capitalize'}}
-                    onClick={() => update({type: 'SET_LOGIN'})}>Login</Button>
+                <Stack direction='row' sx={{justifyContent: 'flex-end', alignItems: 'center', px: 2}}>
+                    <Button variant='outlined' size='small' sx={{textTransform: 'capitalize'}}>Login</Button>
                 </Stack>}
             </Grid>
             <Box component={'div'} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '4rem', borderLeft: 2, borderColor: '#EDEDED' }}>

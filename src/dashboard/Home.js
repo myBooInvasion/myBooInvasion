@@ -18,12 +18,12 @@ function Home() {
     }
 
     return (
-        <Box component={'div'} sx={{ display: 'flex', backgroundColor: '#F7F7F7', width: '100%', minHeight: '100vh' }}>
+        <Box component={'div'} sx={{ display: 'flex', justifyContent: 'flex-end', backgroundColor: '#F7F7F7', width: '100%', minHeight: '100vh' }}>
             <Sider sider={sider} />
             <Drawer anchor='left' open={drawer} onClose={ToggleDrawer} sx={{display: {xs: 'flex', lg: 'none'}}}>
                 <ContentDrawer />
             </Drawer>
-            <Box component={'div'} sx={{ flexGrow: 1 }}>
+            <Box component={'div'} sx={{ width: {xs: '100%', lg: sider? 'calc(100% - 168px)':'calc(100% - 68px)'}, transition: 'all .25s ease-in' }}>
                 <Navbar sider={sider} toggleDrawer={ToggleDrawer} changeWidth={ChangeWidth} />
                 <Outlet />
             </Box>
