@@ -10,6 +10,8 @@ function Navbar(props) {
     const myContext = useContext(UserContext);
     const {state, update} = myContext;
 
+    console.log(update);
+
     // Menu Dropdown
     const [targetEl, setTargetEl] = useState(null);
     const [open, setOpen] = useState(false);
