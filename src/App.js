@@ -6,6 +6,7 @@ import './App.css';
 import Home from './dashboard/Home';
 import Overview from './dashboard/overview/Overview';
 import Profile from './dashboard/profile/Profile';
+import AuthPage from './authentication/AuthPage';
 
 
 const them = createTheme({
@@ -72,6 +73,7 @@ class App extends Component {
               <Route path='' element={<Overview />} />
               <Route path='profile' element={<Profile />} />
             </Route>
+            <Route path='auth' element={<AuthPage />} />
           </Routes>
         </ThemeProvider>
       </UserContext.Provider>

@@ -44,7 +44,7 @@ function Navbar(props) {
                     </Menu>
                 </Stack>:
                 <Stack direction='row' sx={{justifyContent: 'flex-end', alignItems: 'center', px: 2}}>
-                    <Button variant='outlined' size='small' sx={{textTransform: 'capitalize'}}>Login</Button>
+                    <Button variant='outlined' size='small' sx={{textTransform: 'capitalize'}} href='/auth'>Login</Button>
                 </Stack>}
             </Grid>
             <Box component={'div'} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '4rem', borderLeft: 2, borderColor: '#EDEDED' }}>

@@ -1,0 +1,53 @@
+.title-login,
+.title-register {
+    animation-name: show;
+    animation-duration: .3s;
+    animation-timing-function: ease-in;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes show {
+    0% {
+        left: -30%;
+        opacity: 0;
+    }
+    100% {
+        left: 0;
+        opacity: 1;
+    }
+}
+
+.user-register {
+    animation-name: fieldShow;
+    animation-duration: .2s;
+    animation-timing-function: ease-in;
+    position: relative;
+}
+
+.email-login,
+.email-register {
+    animation-name: fieldShow;
+    animation-duration: .3s;
+    animation-timing-function: ease-in;
+    position: relative;
+}
+
+.pass-login,
+.pass-register {
+    animation-name: fieldShow;
+    animation-duration: .4s;
+    animation-timing-function: ease-in;
+    position: relative;
+}
+
+@keyframes fieldShow {
+    0% {
+        left: -20%;
+        opacity: 0;
+    }
+    100% {
+        left: 0;
+        opacity: 1;
+    }
+}
