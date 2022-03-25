@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Avatar, Box, Button, Grid, IconButton, MenuItem, Menu, Stack } from '@mui/material';
+import {Link} from 'react-router-dom';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { ArrowDropDownRounded, List, MenuOpen } from '@mui/icons-material';
 import MenuIcon from '@mui/icons-material/MenuRounded';
@@ -44,7 +45,9 @@ function Navbar(props) {
                     </Menu>
                 </Stack>:
                 <Stack direction='row' sx={{justifyContent: 'flex-end', alignItems: 'center', px: 2}}>
-                    <Button variant='outlined' size='small' sx={{textTransform: 'capitalize'}} href='/auth'>Login</Button>
+                    <Button variant='outlined' size='small' sx={{textTransform: 'capitalize'}} href='/auth'>
+                        <Link to={'/auth'} style={{textDecoration: 'none'}}>login</Link>
+                    </Button>
                 </Stack>}
             </Grid>
             <Box component={'div'} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '4rem', borderLeft: 2, borderColor: '#EDEDED' }}>
