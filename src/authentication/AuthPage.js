@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Box, Button, Container, InputAdornment, Stack, TextField, Typography } from '@mui/material';
 import { AccountCircleOutlined, AttachEmailOutlined, VpnKeyOutlined } from '@mui/icons-material';
 import './Auth.css';
+import { useNavigate } from 'react-router-dom';
+import UserContext from '../UserContext';
 
 function AuthPage() {
+    const myContext = useContext(UserContext);
+    const navigate = useNavigate();
+
     // Change Tabs Login/Register
     const [sign, setSign] = useState(false);
 
     // Login Data
     const [loginData, setLoginData] = useState({
-        email: '',
+        username: '',
         password: '',
     });
 
@@ -34,12 +39,35 @@ function AuthPage() {
     }
 
     // HandleSubmit
-    const handleSubmit = () => {
-        
+    async function handleSubmit() {
+        await fetch('http://localhost:8000/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+            body: JSON.stringify(loginData),
+        })
+        .then(result => result.json())
+        .then(json => {
+            if (json.status_code === 202) {
+                myContext.update({type: 'SET_LOGIN'});
+                navigate('/', {replace: true});
+            } else {
+                console.log(json.detail);
+            }
+        })
+        .catch(err => console.log(err))
     }
 
+    useEffect(() => {
+        if (myContext.state.isLogin) {
+            navigate('/', {replace: true})
+        }
+    })
+
     return (
-        <Container maxWidth={'xs'} sx={{ minHeight: '100vh', display: 'flex', alignItems: 'center', textAlign: 'center', zIndex: 2 }}>
+        <Container maxWidth={'xs'} sx={{ minHeight: '100vh', display: 'flex', alignItems: 'center', textAlign: 'center' }}>
             <Box sx={{ backgroundColor: 'white', boxShadow: 3, borderRadius: 2, flexGrow: 1, py: 3, px: 6 }}>
                 {sign?
                 <RegisterView changeData={handleChange} />:
@@ -56,7 +84,7 @@ const LoginView = (props) => {
     return (
         <Stack component={'form'} spacing={4}>
             <Typography className='title-login' variant='h5' fontWeight='bold' textAlign='center'>Login</Typography>
-            <TextField id='email' className='email-login' required type={'email'} variant='standard' color='primary' size='medium' placeholder='Email'
+            <TextField id='username' className='email-login' required variant='standard' color='primary' size='medium' placeholder='Username'
                 InputProps={{
                     startAdornment: (
                         <InputAdornment position='start'>

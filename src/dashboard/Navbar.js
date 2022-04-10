@@ -9,9 +9,6 @@ import UserContext from '../UserContext';
 function Navbar(props) {
     // Get Context Value
     const myContext = useContext(UserContext);
-    const {state, update} = myContext;
-
-    console.log(update);
 
     // Menu Dropdown
     const [targetEl, setTargetEl] = useState(null);
@@ -32,7 +29,7 @@ function Navbar(props) {
                 </IconButton>
             </Grid>
             <Grid item xs>
-                {state.isLogin?
+                {myContext.state.isLogin?
                 <Stack direction='row' sx={{justifyContent: 'flex-end', alignItems: 'center'}}>
                     <Avatar alt='jhon' src={'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80'} sx={{ mx: 1 }} />
                     <IconButton size='small' color='secondary' onClick={ShowMenu}>
@@ -45,7 +42,7 @@ function Navbar(props) {
                     </Menu>
                 </Stack>:
                 <Stack direction='row' sx={{justifyContent: 'flex-end', alignItems: 'center', px: 2}}>
-                    <Button variant='outlined' size='small' sx={{textTransform: 'capitalize'}} href='/auth'>
+                    <Button variant='outlined' size='small' sx={{textTransform: 'capitalize'}}>
                         <Link to={'/auth'} style={{textDecoration: 'none'}}>login</Link>
                     </Button>
                 </Stack>}

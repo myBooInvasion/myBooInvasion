@@ -6,13 +6,9 @@ import './Dashboard.css';
 import logoReact from '../logo.svg';
 
 function Sider(props) {
-    const CheckSize = (element) => {
-        console.log(element.target.scrollWidth);
-    }
-
     return (
         <Box component={'div'}
-            sx={{ height: '100vh', backgroundColor: 'white', px: 1, borderRight: 2, borderColor: '#EDEDED', position: 'fixed', left: 0, top: 0, display: { xs: 'none', lg: 'block' } }} onClick={CheckSize}>
+            sx={{ height: '100vh', backgroundColor: 'white', px: 1, borderRight: 2, borderColor: '#EDEDED', position: 'fixed', left: 0, top: 0, display: { xs: 'none', lg: 'block' } }}>
 
             <List>
                 <ListItem disablePadding>
